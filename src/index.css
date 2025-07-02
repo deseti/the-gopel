@@ -1,0 +1,37 @@
+
+/* Add this at the end of src/index.css */
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+  background-color: #333;
+}
+
+.project-card {
+  padding: 0; /* Override previous padding */
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-stats {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+
+.card-link {
+  margin-top: auto; /* Pushes the link to the bottom */
+  padding-top: 1rem;
+}
