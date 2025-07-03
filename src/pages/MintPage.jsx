@@ -3,7 +3,7 @@ import { useAccount, useWriteContract, useWaitForTransactionReceipt } from "wagm
 import { parseEther, decodeEventLog } from "viem";
 import HodlGolemAbi from "../abis/HodlGolem.json";
 
-const CONTRACT_ADDRESS = "0xC9F7a743bCDBC418C2A3B93d841Afb25b1Fa603b";
+const CONTRACT_ADDRESS = "0x10082db98530D90bEe8252D4Bb7b2F7F3Ec2c3A9";
 const MONAD_EXPLORER_TX = "https://testnet.monadexplorer.com/tx/";
 
 const SEGMENTS = [1, 2, 3];
