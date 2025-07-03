@@ -55,7 +55,6 @@ const HomePage = () => {
     <div className="page-container">
       <h2>Ecosystem Projects</h2>
 
-      {/* 3. KOTAK PENCARIAN (SEARCH BAR) */}
       <input 
         type="text"
         placeholder="Search projects by name..."
@@ -64,12 +63,18 @@ const HomePage = () => {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
 
-      <section className="projects-grid">
-        {/* 4. MENAMPILKAN HASIL YANG SUDAH DIFILTER */}
-        {filteredProjects.map((project, index) => (
-          <ProjectCard key={project.collectionId || index} project={project} />
-        ))}
-      </section>
+      {/* --- INI BAGIAN YANG DIMODIFIKASI --- */}
+      {filteredProjects.length > 0 ? (
+        <section className="projects-grid">
+          {filteredProjects.map((project, index) => (
+            <ProjectCard key={project.collectionId || index} project={project} />
+          ))}
+        </section>
+      ) : (
+        <p>No projects found for "{searchTerm}"</p>
+      )}
+      {/* ------------------------------------- */}
+
     </div>
   );
 };
