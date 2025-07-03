@@ -15,11 +15,11 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'; // <--
 
 // --- Definisi Chain Monad Testnet (Tetap Sama) ---
 const monadTestnet = {
-  id: 80085,
+  id: 10143,
   name: 'Monad Testnet',
   nativeCurrency: { name: 'Monad', symbol: 'MON', decimals: 18 },
   rpcUrls: {
-    default: { http: ['https://monad-testnet.g.alchemy.com/v2/Vzk1J44kz8MpsWdvJ_UOb'] },
+    default: { http: ['https://testnet-rpc.monad.xyz'] },
   },
   testnet: true,
 };
@@ -41,6 +41,7 @@ const config = getDefaultConfig({
 
 // --- Router Configuration (Tetap Sama) ---
 import HomePage from './pages/HomePage.jsx';
+import MintPage from './pages/MintPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -51,7 +52,10 @@ const router = createBrowserRouter([
         index: true,
         element: <HomePage />, 
       },
-      // Route untuk top-collections sudah dihapus
+      {
+        path: "/mint",
+        element: <MintPage />,
+      },
     ],
   },
 ]);

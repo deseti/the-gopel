@@ -1,3 +1,116 @@
+/* Styling for Mint Page */
+.mint-card {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 2rem;
+  background: var(--card-background);
+  color: var(--text-color);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  position: relative;
+}
+
+.mint-card h2 {
+  margin-top: 0;
+  font-size: 2rem;
+  color: #4f46e5;
+  letter-spacing: 0.04em;
+}
+
+.mint-subtext {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  font-size: 1.08rem;
+}
+
+.mint-area {
+  margin-bottom: 1.5rem;
+}
+
+.mint-button {
+  width: 100%;
+  padding: 1rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  background: #4f46e5;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px #4f46e522;
+}
+
+.mint-button:hover:not(:disabled) {
+  background: #4338ca;
+  box-shadow: 0 4px 16px #4f46e544;
+}
+
+.mint-button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+.status-area {
+  margin-top: 1.5rem;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.status-text {
+  font-weight: 500;
+  font-size: 1.08rem;
+}
+
+.status-text.success {
+  color: #16a34a;
+}
+
+.status-text.error {
+  color: #e11d48;
+}
+
+.explorer-link {
+  font-size: 0.95rem;
+  color: #2563eb;
+  text-decoration: underline;
+  margin-top: 0.5rem;
+}
+
+.spin-visual {
+  margin: 18px 0 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+.spin-ball {
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4f46e5 60%, #9F5FFF 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 44px;
+  text-align: center;
+  box-shadow: 0 2px 12px #4f46e533;
+  border: 2.5px solid #fff;
+  transition: transform 0.2s;
+}
+.spin-ball.animate {
+  animation: spin-pop 0.5s cubic-bezier(.4,2,.6,1.1);
+}
+@keyframes spin-pop {
+  0% { transform: scale(0.7) rotate(-30deg); opacity: 0.2; }
+  60% { transform: scale(1.15) rotate(10deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
 /* ===== MODERN DARK PURPLE THEME (CLEAN) ===== */
 :root {
   --background: #18122B;
