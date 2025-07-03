@@ -35,3 +35,15 @@
   margin-top: auto; /* Pushes the link to the bottom */
   padding-top: 1rem;
 }
+
+/* Add this to the end of index.css */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}

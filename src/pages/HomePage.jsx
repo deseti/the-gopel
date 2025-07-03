@@ -1,10 +1,10 @@
-// src/pages/HomePage.jsx
+// src/pages/HomePage.jsx - KODE DENGAN PERBAIKAN FINAL
+
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProjectCard from '../components/ProjectCard.jsx';
 
 const HomePage = () => {
-  // State to store our data, loading status, and errors
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -12,17 +12,17 @@ const HomePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // URL-nya tetap sama
-        const url = 'https://api-mainnet.magiceden.dev/v3/rtp/monad-testnet/collections/v7';
-
-        // Panggilan Axios sekarang lebih simpel, tanpa headers
+        const url = '/api/v3/rtp/monad-testnet/collections/v7';
         const response = await axios.get(url, {
           params: {
             limit: 20,
             sortBy: 'allTimeVolume'
           }
         });
-        
+
+        // DEBUG: Mari kita lihat data mentah dari API di console browser
+        console.log("Raw API Data:", response.data.collections);
+
         if (response.data && response.data.collections) {
           setProjects(response.data.collections);
         }
@@ -38,7 +38,6 @@ const HomePage = () => {
     fetchData();
   }, []);
 
-  // Conditional Rendering based on state
   if (loading) {
     return <div className="page-container"><h2>Loading Projects...</h2></div>;
   }
@@ -51,8 +50,9 @@ const HomePage = () => {
     <div className="page-container">
       <h2>Ecosystem Projects</h2>
       <section className="projects-grid">
-        {projects.map((project) => (
-          <ProjectCard key={project.collectionId} project={project} />
+        {/* INI PERBAIKANNYA: Menggunakan index sebagai fallback key */}
+        {projects.map((project, index) => (
+          <ProjectCard key={project.collectionId || index} project={project} />
         ))}
       </section>
     </div>
