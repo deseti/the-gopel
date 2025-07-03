@@ -1,4 +1,4 @@
-// src/pages/HomePage.jsx - KODE DENGAN PERBAIKAN FINAL
+// src/pages/HomePage.jsx - DENGAN FITUR SEARCH
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -8,6 +8,9 @@ const HomePage = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  // 1. STATE BARU UNTUK MENYIMPAN INPUT PENCARIAN
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,9 +22,6 @@ const HomePage = () => {
             sortBy: 'allTimeVolume'
           }
         });
-
-        // DEBUG: Mari kita lihat data mentah dari API di console browser
-        console.log("Raw API Data:", response.data.collections);
 
         if (response.data && response.data.collections) {
           setProjects(response.data.collections);
@@ -38,6 +38,11 @@ const HomePage = () => {
     fetchData();
   }, []);
 
+  // 2. LOGIKA UNTUK MEMFILTER PROYEK
+  const filteredProjects = projects.filter(project => 
+    project.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   if (loading) {
     return <div className="page-container"><h2>Loading Projects...</h2></div>;
   }
@@ -49,9 +54,19 @@ const HomePage = () => {
   return (
     <div className="page-container">
       <h2>Ecosystem Projects</h2>
+
+      {/* 3. KOTAK PENCARIAN (SEARCH BAR) */}
+      <input 
+        type="text"
+        placeholder="Search projects by name..."
+        className="search-bar"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+
       <section className="projects-grid">
-        {/* INI PERBAIKANNYA: Menggunakan index sebagai fallback key */}
-        {projects.map((project, index) => (
+        {/* 4. MENAMPILKAN HASIL YANG SUDAH DIFILTER */}
+        {filteredProjects.map((project, index) => (
           <ProjectCard key={project.collectionId || index} project={project} />
         ))}
       </section>
