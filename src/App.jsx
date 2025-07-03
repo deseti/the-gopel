@@ -1,4 +1,5 @@
 // src/App.jsx
+import { Outlet } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -7,12 +8,12 @@ function App() {
     <>
       <Header />
       <main>
-        {/* Page content will be rendered here */}
-        <p>Welcome to the Monad Ecosystem Hub!</p>
+        {/* React Router will render the correct page component here */}
+        <Outlet />
       </main>
       <Footer />
     </>
   )
 }
 
-export default App
+export default App;
