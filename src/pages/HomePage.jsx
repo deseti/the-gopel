@@ -10,23 +10,19 @@ const HomePage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // We define an async function inside useEffect to fetch data
     const fetchData = async () => {
       try {
-        const apiKey = import.meta.env.VITE_MAGICEDEN_API_KEY;
+        // URL-nya tetap sama
         const url = 'https://api-mainnet.magiceden.dev/v3/rtp/monad-testnet/collections/v7';
 
+        // Panggilan Axios sekarang lebih simpel, tanpa headers
         const response = await axios.get(url, {
-          headers: {
-            'Authorization': `Bearer ${apiKey}`
-          },
           params: {
-            limit: 20, // Let's get 20 collections
+            limit: 20,
             sortBy: 'allTimeVolume'
           }
         });
-
-        // The actual data is in response.data.collections
+        
         if (response.data && response.data.collections) {
           setProjects(response.data.collections);
         }
@@ -35,13 +31,12 @@ const HomePage = () => {
         console.error("Failed to fetch data:", err);
         setError("Failed to load projects. Please try again later.");
       } finally {
-        // This runs whether the fetch was successful or failed
         setLoading(false);
       }
     };
 
     fetchData();
-  }, []); // The empty array [] means this effect runs only once when the component mounts
+  }, []);
 
   // Conditional Rendering based on state
   if (loading) {
