@@ -1,79 +1,111 @@
-🔮 The Gøpel - Monad Ecosystem Hub & Hodl Spinner
-A submission for the Monad Mission 5 event. "The Gøpel" is a user-friendly tooling platform designed to be the central hub for discovering projects and creators within the Monad ecosystem, featuring a unique and gamified NFT minting experience.
+# <img src="public/icon.png" alt="Hodl Golem" width="60" style="vertical-align:middle; margin-right:10px;"/> The Gøpel - Monad Ecosystem Hub & Hodl Spinner
 
-🚀 Live Demo
-Access the deployed application here:
+---
 
-https://the-gopel.vercel.app
+> **A submission for Monad Mission 5**
 
-(Note: Please replace this with your actual Vercel URL after deployment)
+**The Gøpel** is a user-friendly platform and gamified NFT minting dApp for the Monad ecosystem. Discover projects, connect your wallet, and play the unique "Hodl Spinner" game to mint exclusive NFTs!
 
-✨ Key Features
-Project Hub: Fetches and displays a live list of NFT collections from the Monad testnet, providing a comprehensive directory for the ecosystem.
+---
 
-Interactive Search: Instantly filter projects by name to easily find what you're looking for.
+## 🚀 [Live Demo](https://the-gopel.vercel.app)
 
-Seamless Wallet Integration: Connect your Web3 wallet using the modern and robust stack of RainbowKit, Wagmi, and Viem.
+*(Replace with your actual Vercel URL after deployment)*
 
-Gamified Minting ("Hodl Spinner"): A novel minting mechanism where the outcome is determined by a random spin, making the experience engaging and unpredictable.
+---
 
-🎲 The "Hodl Spinner" Mechanism
-The "Hodl Spinner" is our implementation of the event's "Novel Mechanics" criteria. Instead of a standard mint, users get to play a game of chance:
+## ✨ Key Features
 
-Pay to Play: A user pays a fixed fee of 0.1 MON to initiate one spin.
+- **Project Hub:** Live directory of NFT collections on Monad testnet.
+- **Instant Search:** Filter projects by name in real time.
+- **Seamless Wallet Integration:** Connect with RainbowKit, Wagmi, and Viem.
+- **Gamified Minting:** Play the "Hodl Spinner" for a chance to mint 1, 2, or 3 NFTs per spin.
+- **Modern UI:** Beautiful, responsive, and dark-themed interface.
 
-Spin the Machine: A dynamic animation of a spinning wheel is displayed on the frontend.
+---
 
-Random Outcome: The smart contract securely generates a random number, resulting in 1, 2, or 3.
+## 🎲 The "Hodl Spinner" Experience
 
-Claim Your Reward: The user receives the "Hodl Golem" NFT, minted directly to their wallet in the quantity determined by the spin.
+1. **Pay to Play:** Pay 0.1 MON to spin the wheel.
+2. **Spin the Wheel:** Enjoy a dynamic, animated spin game.
+3. **Random Outcome:** The smart contract determines if you win 1, 2, or 3 NFTs.
+4. **Claim Your Golems:** NFTs are minted directly to your wallet.
 
-The NFT: Hodl Golem
-Forged in the volatile fires of the testnet, the Monad Golems are unbreakable. They carry a simple, powerful message for every builder and user: HODL. Minting a Golem signifies your unwavering belief in the long-term vision of parallelized execution.
+<p align="center">
+  <img src="public/icon.png" alt="NFT Preview" width="160"/>
+</p>
 
-🛠️ Tech Stack
-Frontend
-Framework: React (with Vite)
+> *Forged in the volatile fires of the testnet, the Monad Golems are unbreakable. They carry a simple, powerful message for every builder and user: HODL.*
 
-Wallet Connection: RainbowKit, Wagmi, Viem
+---
 
-API Calls: Axios
+## 🛠️ Tech Stack
 
-Deployment: Vercel
+**Frontend:**
+- React (Vite)
+- RainbowKit, Wagmi, Viem
+- Axios
+- Vercel (Deployment)
 
-Backend (Smart Contract)
-Language: Solidity
+**Smart Contract:**
+- Solidity (ERC-1155, Foundry)
+- Monad Testnet
 
-Framework: Foundry
+---
 
-Token Standard: ERC-1155
+## ⚙️ Getting Started
 
-Blockchain: Monad Testnet
+```bash
+# Clone the repository
+$ git clone https://github.com/deseti/the-gopel.git
+$ cd the-gopel
 
-⚙️ Running Locally
-To run this project on your local machine:
+# Install dependencies
+$ npm install
 
-Clone this repository:
+# Start the development server
+$ npm run dev
+```
 
-git clone https://github.com/deseti/the-gopel.git
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-Navigate into the project directory:
+---
 
-cd the-gopel
+## 📄 Smart Contract
 
-Install all required packages:
+- **Network:** Monad Testnet
+- **Contract Address:** [`0xC9F7a743bCDBC418C2A3B93d841Afb25b1Fa603b`](https://testnet.monadexplorer.com/address/0xC9F7a743bCDBC418C2A3B93d841Afb25b1Fa603b)
+- **Function:** `spinAndMint()` (payable, 0.1 MON)
+- **Event:** `GolemSpin(address indexed player, uint256 quantityMinted)`
 
-npm install
+---
 
-Run the development server:
+## 🗂️ Project Structure
 
-npm run dev
+```
+public/
+  icon.png           # NFT preview image
+src/
+  abis/HodlGolem.json
+  components/
+  pages/
+    MintPage.jsx     # Main minting UI
+  App.jsx
+  main.jsx
+  index.css
+package.json
+vite.config.js
+README.md
+```
 
-Open http://localhost:5173 in your browser.
+---
 
-📄 Smart Contract Information
-Network: Monad Testnet
+## 👤 Author
 
-Contract Address: 0xC9F7a743bCDBC418C2A3B93d841Afb25b1Fa603b
+- [deseti](https://github.com/deseti)
 
-View on Explorer: https://testnet.monadexplorer.com/address/0xC9F7a743bCDBC418C2A3B93d841Afb25b1Fa603b
+---
+
+## 📝 License
+
+MIT
