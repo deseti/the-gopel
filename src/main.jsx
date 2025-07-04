@@ -31,7 +31,7 @@ const queryClient = new QueryClient();
 // --- Konfigurasi Wagmi v2 (Tetap Sama) ---
 const config = getDefaultConfig({
   appName: 'The Gøpel',
-  projectId: '8a2a4cc0c27b9640b32df15c1b9e4205',
+  projectId: 'Id wallet',
   chains: [monadTestnet],
   transports: {
     [monadTestnet.id]: http()
